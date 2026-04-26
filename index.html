@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today Is Our Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <img src="assets/logo.png" alt="Today Is Our Adventure Logo" class="logo">
+        <h1 class="welcome-title">Welcome Adventurer!</h1>
+    </header>
+
+    <main class="adventure-map">
+        <!-- SVG background trail will be handled via CSS or an inline SVG here -->
+        <svg class="trail-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+            <path class="trail-path" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+        </svg>
+
+        <div class="waypoints">
+            <div class="waypoint" id="wp-instructions" style="top: 15%; left: 65%;">
+                <div class="icon-container">
+                    <span class="icon">🔍</span>
+                </div>
+                <span class="waypoint-label">Quest Instructions</span>
+            </div>
+
+            <div class="waypoint" id="wp-loot" style="top: 45%; left: 30%;">
+                <div class="icon-container">
+                    <span class="icon">🧰</span>
+                </div>
+                <span class="waypoint-label">The Loot Table</span>
+            </div>
+
+            <div class="waypoint" id="wp-rules" style="top: 75%; left: 65%;">
+                <div class="icon-container">
+                    <span class="icon">📜</span>
+                </div>
+                <span class="waypoint-label">The Rules</span>
+            </div>
+
+            <a href="https://m.me/todayisouradventure" target="_blank" class="waypoint final-destination" id="wp-submit" style="top: 95%; left: 50%;">
+                <div class="icon-container gold-marker">
+                    <span class="icon">?</span>
+                </div>
+                <span class="waypoint-label">Submit Quest</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="modal-instructions" class="modal">
+        <div class="modal-content parchment">
+            <button class="close-btn">&times;</button>
+            <h2>📜 Quest Instructions</h2>
+
+            <div class="video-container">
+                <video id="quest-video" controls poster="assets/logo.png">
+                    <source src="videos/Quest_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div id="quest-instructions-text" style="display: none;">
+                <ul>
+                    <li><strong>The Search:</strong> Find Mike and Amy together! We’ll be at the social hours, seminars, meals, or hanging out by the fire or on the patio of our Brinkley Z 3400.</li>
+                <li><strong>The Selfie:</strong> Grab a quick selfie with both of us.</li>
+                <li><strong>The Submission:</strong> Message your selfie and your Campsite Number to us via Facebook Messenger.
+                    <ul>
+                        <li>💡 <em>Hint:</em> You can scan the Yellow "?" on Mike or Amy’s cup to instantly open the link and turn in your quest!</li>
+                        <li>The campsite number is required so we can deliver your loot!</li>
+                    </ul>
+                </li>
+                    <li><strong>The Deadline:</strong> All entries must be messaged by 4:00 PM on the last full day of the rally.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-loot" class="modal">
+        <div class="modal-content parchment">
+            <button class="close-btn">&times;</button>
+            <h2>🎁 The Loot Table</h2>
+            <p>Check out the gear up for grabs! Submit your selfie and site number to enter the drawing. Higher rarity tiers will be delivered directly to your site!</p>
+
+            <div class="loot-grid">
+                <div class="loot-item legendary">
+                    <div class="rarity">🟠 Legendary</div>
+                    <img src="https://placehold.co/100x100?text=Chest" alt="Legendary Treasure Box" class="loot-img">
+                    <h3>TIOA Coffee Lover’s Treasure Box</h3>
+                    <p>The Grand Prize! A TIOA Wooden Treasure Chest featuring: Limited Edition Rally mugs, Epic Coffee from H&C, a TIOA Wayfinder Logo, a pup travel bowl, and gourmet treats!</p>
+                    <small>Note: This is a Charity Raffle item. To win, you must purchase a raffle ticket at the charity booth!</small>
+                </div>
+
+                <div class="loot-item superior">
+                    <div class="rarity">🟡 Superior</div>
+                    <img src="https://placehold.co/100x100?text=Artifacts" alt="The Artifacts" class="loot-img">
+                    <h3>The Artifacts</h3>
+                    <p>High-tier individual drops: Shot Glass, Limited Edition Wine Tumbler, the Rally Rock, or the TIOA Quest Coin.</p>
+                </div>
+
+                <div class="loot-item epic">
+                    <div class="rarity">🟣 Epic</div>
+                    <img src="https://placehold.co/100x100?text=Mug" alt="Wayfinder Mug" class="loot-img">
+                    <h3>Wayfinder Mug</h3>
+                    <p>Limited Edition Custom Coffee Mug featuring a design created specifically to commemorate this rally.</p>
+                </div>
+
+                <div class="loot-item rare">
+                    <div class="rarity">🔵 Rare</div>
+                    <img src="https://placehold.co/100x100?text=Cup" alt="The Traveler" class="loot-img">
+                    <h3>The Traveler</h3>
+                    <p>TIOA Wayfinder Logo Travel Cup.</p>
+                </div>
+
+                <div class="loot-item uncommon">
+                    <div class="rarity">🟢 Uncommon</div>
+                    <img src="https://placehold.co/100x100?text=Sticker" alt="Rally Sticker" class="loot-img">
+                    <h3>Rally Sticker</h3>
+                    <p>Limited Edition Rally Vinyl Sticker. A guaranteed drop while supplies last—get yours before they're gone!</p>
+                </div>
+
+                <div class="loot-item common">
+                    <div class="rarity">⚪ Common</div>
+                    <img src="https://placehold.co/100x100?text=Coins" alt="Wayfinder Classics" class="loot-img">
+                    <h3>Wayfinder Classics</h3>
+                    <p>Official TIOA Wayfinder Logo Vinyl Sticker or a Delicious gold-wrapped chocolate "Experience Point" coins. A sweet reward for a successful adventure!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-rules" class="modal">
+        <div class="modal-content parchment">
+            <button class="close-btn">&times;</button>
+            <h2>⚖️ The Rules</h2>
+            <ul>
+                <li><strong>The Duo:</strong> To count, the selfie must include both Mike and Amy.</li>
+                <li><strong>Respect the Rig:</strong> We love visitors, but please be mindful of quiet hours and private downtime at the campsites.</li>
+                <li><strong>One Entry:</strong> One submission per campsite number.</li>
+                <li><strong>Delivery:</strong> Winners of the Epic and Rare tiers will have their loot delivered directly to their site—you must be present at the rally to win!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
