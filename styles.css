@@ -304,6 +304,77 @@ body {
 .common { border-color: #a9a9a9; }
 .common .rarity { color: #696969; }
 
+/* Form Styles */
+.quest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #4a3b2c;
+}
+
+.form-group input {
+    padding: 0.75rem;
+    border: 2px solid var(--color-parchment-border);
+    border-radius: 4px;
+    background: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.submit-instructions {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.submit-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+}
+
+.copy-btn {
+    background-color: #fff;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+}
+
+.messenger-btn {
+    background-color: #0084ff; /* Messenger blue */
+    color: #fff;
+}
+
 /* Responsive adjustments */
 @media (max-width: 400px) {
     .welcome-title {
