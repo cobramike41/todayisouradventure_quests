@@ -41,12 +41,12 @@
                 <span class="waypoint-label">The Rules</span>
             </div>
 
-            <a href="https://m.me/todayisouradventure" target="_blank" class="waypoint final-destination" id="wp-submit" style="top: 95%; left: 50%;">
+            <div class="waypoint final-destination" id="wp-submit" style="top: 95%; left: 50%;">
                 <div class="icon-container gold-marker">
                     <span class="icon">?</span>
                 </div>
                 <span class="waypoint-label">Submit Quest</span>
-            </a>
+            </div>
         </div>
     </main>
 
@@ -83,7 +83,7 @@
         <div class="modal-content parchment">
             <button class="close-btn">&times;</button>
             <h2>🎁 The Loot Table</h2>
-            <p>Check out the gear up for grabs! Submit your selfie and site number to get your loot. Higher rarity tiers will be delivered directly to your site!</p>
+            <p>Check out the gear up for grabs! Submit your selfie and site number to enter the drawing. Higher rarity tiers will be delivered directly to your site!</p>
 
             <div class="loot-grid">
                 <div class="loot-item legendary">
@@ -91,7 +91,7 @@
                     <img src="https://placehold.co/100x100?text=Chest" alt="Legendary Treasure Box" class="loot-img">
                     <h3>TIOA Coffee Lover’s Treasure Box</h3>
                     <p>The Grand Prize! A TIOA Wooden Treasure Chest featuring: Limited Edition Rally mugs, Epic Coffee from H&C, a TIOA Wayfinder Logo, a pup travel bowl, and gourmet treats!</p>
-                    <small>Note: This is a Charity Raffle item. To win, you must purchase a raffle ticket from the rally raffle!</small>
+                    <small>Note: This is a Charity Raffle item. To win, you must purchase a raffle ticket at the charity booth!</small>
                 </div>
 
                 <div class="loot-item superior">
@@ -137,12 +137,37 @@
             <button class="close-btn">&times;</button>
             <h2>⚖️ The Rules</h2>
             <ul>
-                <li><strong>The Duo:</strong> To count, the selfie must include both Mike and Amy. Find us at one of the many rally events to get your selfie, or if we are hanging out on our patio or sitting around the campfire. </li>
-                <li><strong>Respect the Rig:</strong> We love visitors, but please be mindful of quiet hours and private downtime inside the Brinkley.</li>
+                <li><strong>The Duo:</strong> To count, the selfie must include both Mike and Amy.</li>
+                <li><strong>Respect the Rig:</strong> We love visitors, but please be mindful of quiet hours and private downtime at the campsites.</li>
                 <li><strong>One Entry:</strong> One submission per campsite number.</li>
-                <li><strong>Permissions:</strong> By submitting your photo, you grant Today Is Our Adventure a royalty-free right to use, edit, and share your image across our social media platforms (including Facebook), YouTube videos, and other promotional materials.</li>
                 <li><strong>Delivery:</strong> Winners of the Epic and Rare tiers will have their loot delivered directly to their site—you must be present at the rally to win!</li>
             </ul>
+        </div>
+    </div>
+
+    <div id="modal-submit" class="modal">
+        <div class="modal-content parchment">
+            <button class="close-btn">&times;</button>
+            <h2>📝 Turn in your Quest</h2>
+            <p class="submit-instructions">
+                Please enter your name and campsite number below. First, click <strong>"Copy Info"</strong> to save it. Then, click <strong>"Messenger"</strong> to open Facebook Messenger, paste your info, and upload your selfie!
+            </p>
+
+            <form id="submit-form" class="quest-form">
+                <div class="form-group">
+                    <label for="adventurer-name">Adventurer Name(s):</label>
+                    <input type="text" id="adventurer-name" placeholder="E.g., John & Jane Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="campsite-number">Campsite Number:</label>
+                    <input type="text" id="campsite-number" placeholder="E.g., Site 42" required>
+                </div>
+
+                <div class="submit-actions">
+                    <button type="button" id="copy-info-btn" class="action-btn copy-btn">📋 Copy Info</button>
+                    <a href="https://m.me/todayisouradventure" target="_blank" class="action-btn messenger-btn">💬 Messenger</a>
+                </div>
+            </form>
         </div>
     </div>
 

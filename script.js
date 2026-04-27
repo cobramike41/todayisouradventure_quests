@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const wpInstructions = document.getElementById('wp-instructions');
     const wpLoot = document.getElementById('wp-loot');
     const wpRules = document.getElementById('wp-rules');
+    const wpSubmit = document.getElementById('wp-submit');
 
     // Modals
     const modalInstructions = document.getElementById('modal-instructions');
     const modalLoot = document.getElementById('modal-loot');
     const modalRules = document.getElementById('modal-rules');
+    const modalSubmit = document.getElementById('modal-submit');
 
     // Close buttons
     const closeBtns = document.querySelectorAll('.close-btn');
@@ -27,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         openModal(modalRules);
     });
+
+    if (wpSubmit) {
+        wpSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(modalSubmit);
+        });
+    }
 
     // Close Modals when clicking the close button
     closeBtns.forEach(btn => {
@@ -56,6 +65,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (questVideo && questInstructionsText) {
         questVideo.addEventListener('ended', () => {
             questInstructionsText.style.display = 'block';
+        });
+    }
+
+    // Copy Info functionality
+    const copyInfoBtn = document.getElementById('copy-info-btn');
+    if (copyInfoBtn) {
+        copyInfoBtn.addEventListener('click', () => {
+            const name = document.getElementById('adventurer-name').value;
+            const campsite = document.getElementById('campsite-number').value;
+
+            if (!name || !campsite) {
+                alert('Please enter both your Name and Campsite Number before copying.');
+                return;
+            }
+
+            const textToCopy = `Quest Submission!\nName: ${name}\nCampsite: ${campsite}\n[Selfie Attached]`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = copyInfoBtn.innerText;
+                copyInfoBtn.innerText = '✅ Copied!';
+                copyInfoBtn.style.backgroundColor = '#94b967'; // green
+                copyInfoBtn.style.color = '#fff';
+
+                setTimeout(() => {
+                    copyInfoBtn.innerText = originalText;
+                    copyInfoBtn.style.backgroundColor = '';
+                    copyInfoBtn.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy text. Please try selecting it manually.');
+            });
         });
     }
 
