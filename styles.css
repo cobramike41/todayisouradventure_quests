@@ -291,18 +291,41 @@ body {
 
 .superior { border-color: #ffd700; }
 .superior .rarity { color: #d4b800; }
+tr.superior td { background-color: rgba(255, 215, 0, 0.1); }
 
 .epic { border-color: #9932cc; }
 .epic .rarity { color: #9932cc; }
+tr.epic td { background-color: rgba(153, 50, 204, 0.1); }
 
 .rare { border-color: #4169e1; }
 .rare .rarity { color: #4169e1; }
+tr.rare td { background-color: rgba(65, 105, 225, 0.1); }
 
 .uncommon { border-color: #32cd32; }
 .uncommon .rarity { color: #32cd32; }
+tr.uncommon td { background-color: rgba(50, 205, 50, 0.1); }
 
 .common { border-color: #a9a9a9; }
 .common .rarity { color: #696969; }
+tr.common td { background-color: rgba(169, 169, 169, 0.1); }
+
+.rarity-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.rarity-badge.legendary { background-color: #ff8c00; }
+.rarity-badge.superior { background-color: #d4b800; }
+.rarity-badge.epic { background-color: #9932cc; }
+.rarity-badge.rare { background-color: #4169e1; }
+.rarity-badge.uncommon { background-color: #32cd32; }
+.rarity-badge.common { background-color: #696969; }
 
 /* Form Styles */
 .quest-form {
