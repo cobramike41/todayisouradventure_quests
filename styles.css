@@ -24,7 +24,7 @@
 
 body {
     font-family: var(--font-body);
-    background-image: url('assets/quest_background.png');
+    background-image: url('assets/quest_background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
