@@ -100,6 +100,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Lightbox Logic
+    const lootTiers = {
+        superior: ['Superior_1.jpg', 'Superior_2.jpg', 'Superior_3.jpg', 'Superior_4.jpg', 'Superior_5.jpg', 'Superior_6.jpg'],
+        epic: ['Epic_1.jpg'],
+        rare: ['Rare_1.jpg', 'Rare_2.jpg'],
+        uncommon: ['Uncommon_1.jpg'],
+        common: ['Common_1.jpg']
+    };
+
+    const modalLightbox = document.getElementById('modal-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentTierImages = [];
+    let currentImageIndex = 0;
+
+    const lootImages = document.querySelectorAll('.loot-img');
+    lootImages.forEach(img => {
+        img.addEventListener('click', () => {
+            const tier = img.getAttribute('data-tier');
+            if (tier && lootTiers[tier]) {
+                currentTierImages = lootTiers[tier];
+
+                // Find the index of the clicked image if it matches one in the array
+                // For simplicity, we just open at index 0 for now since the main list shows _1.jpg
+                // But let's try to match it based on src if possible
+                const srcFilename = img.src.split('/').pop();
+                const foundIndex = currentTierImages.findIndex(i => i === srcFilename);
+                currentImageIndex = foundIndex !== -1 ? foundIndex : 0;
+
+                updateLightboxImage();
+                openModal(modalLightbox);
+            }
+        });
+    });
+
+    function updateLightboxImage() {
+        if (currentTierImages.length === 0) return;
+
+        lightboxImg.src = `Loot/${currentTierImages[currentImageIndex]}`;
+
+        if (currentTierImages.length <= 1) {
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+        } else {
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+        }
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing modal if clicking button
+            if (currentTierImages.length <= 1) return;
+            currentImageIndex = (currentImageIndex - 1 + currentTierImages.length) % currentTierImages.length;
+            updateLightboxImage();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentTierImages.length <= 1) return;
+            currentImageIndex = (currentImageIndex + 1) % currentTierImages.length;
+            updateLightboxImage();
+        });
+    }
+
     function openModal(modal) {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
