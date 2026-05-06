@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle Winners 2026</title>
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .virginia-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .virginia-sign {
+            max-width: 300px;
+            height: auto;
+        }
+
+        .virginia-logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .road-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .road-path {
+            fill: none;
+            stroke: #444; /* Dark grey road */
+            stroke-width: 40;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .road-centerline {
+            fill: none;
+            stroke: #FFCE54; /* Yellow dashed line */
+            stroke-width: 4;
+            stroke-dasharray: 15, 15;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Adjust waypoints to act as links */
+        .waypoint-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .waypoint-link:hover .icon-container {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="virginia-header">
+        <img src="../assets/VirginiaSign.png" alt="Virginia is for Lovers" class="virginia-sign">
+        <img src="../assets/logo_small.webp" alt="TIOA Logo" class="virginia-logo">
+    </header>
+
+    <main class="adventure-map">
+        <!-- SVG road -->
+        <svg class="road-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+            <!-- Road Base -->
+            <path class="road-path" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+            <!-- Center Line -->
+            <path class="road-centerline" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+        </svg>
+
+        <div class="waypoints">
+            <!-- Waypoint 1: New River Valley -->
+            <a href="https://youtu.be/faZJ6kuI25k" target="_blank" class="waypoint-link">
+                <div class="waypoint" style="top: 25%; left: 60%;">
+                    <div class="icon-container">
+                        <img src="../assets/valley.svg" alt="New River Valley" class="icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <span class="waypoint-label">New River Valley</span>
+                </div>
+            </a>
+
+            <!-- Waypoint 2: Floyd -->
+            <a href="https://youtu.be/faZJ6kuI25k" target="_blank" class="waypoint-link">
+                <div class="waypoint" style="top: 50%; left: 35%;">
+                    <div class="icon-container">
+                        <img src="../assets/town.svg" alt="Floyd" class="icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <span class="waypoint-label">Floyd</span>
+                </div>
+            </a>
+
+            <!-- Waypoint 3: Roanoke/Salem -->
+            <a href="https://youtu.be/faZJ6kuI25k" target="_blank" class="waypoint-link">
+                <div class="waypoint" style="top: 75%; left: 55%;">
+                    <div class="icon-container">
+                        <img src="../assets/city.svg" alt="Roanoke/Salem" class="icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <span class="waypoint-label">Roanoke/Salem</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>
