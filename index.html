@@ -162,23 +162,20 @@
             <button class="close-btn">&times;</button>
             <h2>📜 Quest Instructions</h2>
 
-            <div class="video-container">
-                <video id="quest-video" controls poster="assets/logo.png">
-                    <source src="videos/Quest_1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="video-container" id="yt-player-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; display: flex; justify-content: center;">
+                <div id="yt-player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
             </div>
 
             <div id="quest-instructions-text" style="display: none;">
                 <ul>
                     <li><strong>The Search:</strong> Find Mike and Amy together! We’ll be at the social hours, seminars, meals, or hanging out by the fire or on the patio of our Brinkley Z 3400.</li>
-                <li><strong>The Selfie:</strong> Grab a quick selfie with both of us.</li>
-                <li><strong>The Submission:</strong> Message your selfie and your Campsite Number to us via Facebook Messenger.
-                    <ul>
-                        <li>💡 <em>Hint:</em> You can scan the Yellow "?" on Mike or Amy’s cup to instantly open the link and turn in your quest!</li>
-                        <li>The campsite number is required so we can deliver your loot!</li>
-                    </ul>
-                </li>
+                    <li><strong>The Selfie:</strong> Grab a quick selfie with both of us.</li>
+                    <li><strong>The Submission:</strong> Message your selfie and your Campsite Number to us via Facebook Messenger <- (<a href="https://m.me/todayisouradventure" target="_blank">https://m.me/todayisouradventure</a>).
+                        <ul>
+                            <li>💡 Hint: You can scan the Yellow "?" on Mike or Amy’s cup to instantly open the link and turn in your quest!</li>
+                            <li>The campsite number is required so we can deliver your loot!</li>
+                        </ul>
+                    </li>
                     <li><strong>The Deadline:</strong> All entries must be messaged by 4:00 PM on the last full day of the rally.</li>
                 </ul>
             </div>
@@ -286,6 +283,8 @@
         </div>
     </div>
 
+    <!-- Load the IFrame Player API code asynchronously. -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>
