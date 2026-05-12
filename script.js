@@ -58,15 +58,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Video reveal logic
-    const questVideo = document.getElementById('quest-video');
+    // YouTube Video reveal logic
     const questInstructionsText = document.getElementById('quest-instructions-text');
+    let ytPlayer;
 
-    if (questVideo && questInstructionsText) {
-        questVideo.addEventListener('ended', () => {
-            questInstructionsText.style.display = 'block';
+    // The YouTube API will call this function when it's ready.
+    // It must be globally accessible, so we attach it to the window object.
+    window.onYouTubeIframeAPIReady = function() {
+        ytPlayer = new YT.Player('yt-player', {
+            videoId: 'HaIgL0lQka4',
+            playerVars: {
+                'playsinline': 1,
+                'controls': 1,
+                'rel': 0
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
         });
+    };
+
+    function onPlayerReady(event) {
+        // Player is ready
     }
+
+    function onPlayerStateChange(event) {
+        // YT.PlayerState.ENDED is 0
+        if (event.data === YT.PlayerState.ENDED) {
+            if (questInstructionsText) {
+                questInstructionsText.style.display = 'block';
+            }
+        }
+    }
+
+    // Hook into the open modal for Instructions to try autoplay
+    wpInstructions.addEventListener('click', (e) => {
+        // e.preventDefault(); already called earlier in this file, but we'll leave it as is there.
+        // Try to play the video when the modal opens
+        if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+            // Some browsers require the video to be muted to autoplay, but the user requested sound.
+            // By placing playVideo inside a click event handler, many browsers will allow it with sound.
+            ytPlayer.playVideo();
+        }
+    });
 
     // Copy Info functionality
     const copyInfoBtn = document.getElementById('copy-info-btn');
@@ -181,9 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Pause video if it's playing in the instructions modal
             if (modal.id === 'modal-instructions') {
-                const video = modal.querySelector('video');
-                if (video) {
-                    video.pause();
+                if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+                    ytPlayer.pauseVideo();
+                }
+
+                // Hide instructions again when modal is closed
+                if (questInstructionsText) {
+                    questInstructionsText.style.display = 'none';
                 }
             }
         });
