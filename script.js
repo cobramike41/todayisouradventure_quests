@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lightbox Logic
     const lootTiers = {
+        legendary: ['Treasure_Chest.jpg'],
         superior: ['Superior_1.jpg', 'Superior_2.jpg', 'Superior_3.jpg', 'Superior_4.jpg', 'Superior_5.jpg', 'Superior_6.jpg'],
         epic: ['Epic_1.jpg'],
         rare: ['Rare_1.jpg', 'Rare_2.jpg'],
